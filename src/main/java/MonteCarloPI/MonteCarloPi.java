@@ -1,5 +1,6 @@
 package MonteCarloPI;
 
+import java.util.Random;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -33,8 +34,16 @@ public class MonteCarloPi {
     // Monte Carlo Pi Approximation without threads
     public static double estimatePiWithoutThreads(long numPoints)
     {
-        // TODO: Implement this method to calculate Pi using a single thread
-        return 0;
+        long internalPoints = 0 ;
+        double x , y ;
+        Random random = new Random();
+        for ( int i = 0 ; i < numPoints ; i++ ){
+            x = (random.nextDouble() * 2.0) - 1.0 ;
+            y = (random.nextDouble() * 2.0) - 1.0 ;
+            if ( Math.pow(x,2) + Math.pow(y,2) <= 1 )
+                internalPoints++ ;
+        }
+        return (4.0*internalPoints)/numPoints;
     }
 
     // Monte Carlo Pi Approximation with threads
