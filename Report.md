@@ -46,3 +46,7 @@
     DoubleAdder
     LongAccumulator
     DoubleAccumulator
+
+The answer to the Monte Carlo algorithm question is:
+
+    No. Sometimes, the overhead of creating too many threads can actually slow down the program. We end up wasting time on thread creation when a single-threaded execution would have been faster. As a result, while the algorithm's execution time might be shorter, the overall runtime becomes longer.
